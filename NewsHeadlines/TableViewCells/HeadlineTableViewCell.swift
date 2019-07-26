@@ -10,6 +10,11 @@ import UIKit
 
 class HeadlineTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var headlineTextLabel: UILabel!
+    @IBOutlet weak var sourcelabel: UILabel!
+    @IBOutlet weak var postedDateLabel: UILabel!
+    @IBOutlet weak var cardBackGroundImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

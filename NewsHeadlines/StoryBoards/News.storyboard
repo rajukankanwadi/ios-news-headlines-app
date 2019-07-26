@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e6s-IW-FCX">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HEADLINES-->
+        <scene sceneID="NDC-nX-1Qq">
+            <objects>
+                <tableViewController storyboardIdentifier="HeadLinesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I1S-jR-D9X" customClass="HeadLinesListTableViewController" customModule="NewsHeadlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MHy-vD-N1E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.4183256662" green="0.4183256662" blue="0.4183256662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="I1S-jR-D9X" id="Dbc-Da-m2I"/>
+                            <outlet property="delegate" destination="I1S-jR-D9X" id="tZn-66-dGj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="HEADLINES" id="iX3-Ug-OEC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6aU-J3-qdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918.84057971014499" y="213.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="skb-8p-iKZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e6s-IW-FCX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="odw-2H-XaD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I1S-jR-D9X" kind="relationship" relationship="rootViewController" id="tP8-h9-6pB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OuH-zM-nqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.6956521739130448" y="213.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
