@@ -19,6 +19,9 @@ class HeadlineTableViewCell: UITableViewCell {
         didSet {
             self.headlineTextLabel.text = article?.title
             self.sourcelabel.text = article?.source?.name
+            if let date = article?.publishedAt {
+                self.postedDateLabel.text = date.convertDateString(from: "yyyy-MM-dd'T'HH:mm:ssZ", to: "yyyy-MM-dd")
+            }
             setImageView()
         }
     }
@@ -41,4 +44,18 @@ class HeadlineTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension String {
+    func convertDateString(from format: String, to destinationFormat: String) -> String {
+        if self == "" {
+            return ""
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date: Date = dateFormatter.date(from: self)!
+        dateFormatter.dateFormat = destinationFormat
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 }

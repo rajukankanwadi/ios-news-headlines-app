@@ -34,13 +34,14 @@ class CustomImageView: UIImageView {
                 print(error ?? "")
                 return
             }
-
+            guard let data = data else {return}
             DispatchQueue.main.async {
-                let imageToCache = UIImage(data: data!)
-                if self.imageUrlString == urlString {
-                    self.image = imageToCache
+                if let imageToCache = UIImage(data: data) {
+                    if self.imageUrlString == urlString {
+                        self.image = imageToCache
+                    }
+                    imageCache.setObject(imageToCache, forKey: urlString as NSString)
                 }
-                imageCache.setObject(imageToCache!, forKey: urlString as NSString)
             }
         }.resume()
     }

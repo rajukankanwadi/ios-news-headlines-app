@@ -23,6 +23,8 @@
 		83BD0E6622EDCD9000DD7760 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6522EDCD9000DD7760 /* CustomImageView.swift */; };
 		83BD0E6822EDD54B00DD7760 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6722EDD54B00DD7760 /* APIServices.swift */; };
 		83BD0E6A22EDD59800DD7760 /* MyAccountStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6922EDD59800DD7760 /* MyAccountStyle.swift */; };
+		83BD0E6D22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6B22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift */; };
+		83BD0E6E22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BD0E6C22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		83BD0E6522EDCD9000DD7760 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		83BD0E6722EDD54B00DD7760 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		83BD0E6922EDD59800DD7760 /* MyAccountStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountStyle.swift; sourceTree = "<group>"; };
+		83BD0E6B22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorTableViewCell.swift; sourceTree = "<group>"; };
+		83BD0E6C22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicatorTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 		8327426A22EA30D4003104DE /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				83BD0E6B22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift */,
+				83BD0E6C22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib */,
 				8327426B22EA3100003104DE /* HeadlineTableViewCell.swift */,
 				8327426C22EA3100003104DE /* HeadlineTableViewCell.xib */,
 			);
@@ -243,6 +249,7 @@
 				8327425222EA3075003104DE /* Assets.xcassets in Resources */,
 				8327427422EA3A4F003104DE /* News.storyboard in Resources */,
 				8327424D22EA3074003104DE /* Main.storyboard in Resources */,
+				83BD0E6E22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib in Resources */,
 				8327426E22EA3100003104DE /* HeadlineTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +277,7 @@
 				83A0DBA022EB236000F7BC52 /* Conctants.swift in Sources */,
 				8327427122EA3A3B003104DE /* HeadLinesListTableViewController.swift in Sources */,
 				8327426D22EA3100003104DE /* HeadlineTableViewCell.swift in Sources */,
+				83BD0E6D22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift in Sources */,
 				83BD0E6822EDD54B00DD7760 /* APIServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,12 +11,17 @@ import UIKit
 class HeadLinesListTableViewController: UITableViewController {
 
     private let headlinesCellId = "headLinesCell"
-    var headlines: HeadlinesInfo?
+    private let loadingCellId = "loadingViewCell"
 
+    var headlines: HeadlinesInfo?
+    var didheadlinesLoad: Bool = false
+    var didHeadlinesFailToLoad: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "HeadlineTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: headlinesCellId)
+        let loadingIndicatorNib = UINib(nibName: "LoadingIndicatorTableViewCell", bundle: nil)
+        tableView.register(loadingIndicatorNib, forCellReuseIdentifier: loadingCellId)
         tableView.rowHeight = 220
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -25,11 +30,15 @@ class HeadLinesListTableViewController: UITableViewController {
 
         APIServices.makeGetCall(onSuccess: { [weak self] (headlinesData) in
             self?.headlines = headlinesData
+            self?.didheadlinesLoad = true
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }) { (error) in
-            print("ERRORRRR")
+            self.didHeadlinesFailToLoad = true
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
 
     }
@@ -44,10 +53,24 @@ class HeadLinesListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: headlinesCellId, for: indexPath) as! HeadlineTableViewCell
-        if let article = headlines?.articles?[indexPath.row] {
-            cell.article = article
+        if !didheadlinesLoad {
+            let cell = tableView.dequeueReusableCell(withIdentifier: loadingCellId, for: indexPath) as! LoadingIndicatorTableViewCell
+            cell.failedApiString = "EquipmentFailed"
+            cell.refreshButton.isHidden = true
+            cell.activityIndicator.startAnimating()
+
+            if didHeadlinesFailToLoad {
+                cell.activityIndicator.stopAnimating()
+                cell.refreshButton.setTitle("Tap here to refresh News feed", for: .normal)
+                cell.refreshButton.isHidden = false
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: headlinesCellId, for: indexPath) as! HeadlineTableViewCell
+            if let article = headlines?.articles?[indexPath.row] {
+                cell.article = article
+            }
+            return cell
         }
-        return cell
     }
 }
