@@ -42,7 +42,6 @@ class NewsDetailViewController: UIViewController {
 
     @objc func backButtonAction() {
         self.navigationController?.popViewController(animated: true)
-        backButton.tintColor = .white
     }
 
     override func viewWillAppear(_ animated: Bool) {
