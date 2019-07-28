@@ -8,8 +8,10 @@
 
 import UIKit
 
+let newsStoryboard = "News"
 class HeadLinesListTableViewController: UITableViewController {
 
+    static let storyBoardId = "HeadLinesTVC"
     private let headlinesCellId = "headLinesCell"
     private let loadingCellId = "loadingViewCell"
 
@@ -73,4 +75,20 @@ class HeadLinesListTableViewController: UITableViewController {
             return cell
         }
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard didheadlinesLoad else {return}
+        if let detailsVC: NewsDetailViewController = GET_VIEW_CONTROLLER(storyBoardName: newsStoryboard, storyBoardId: NewsDetailViewController.storyBoardId) {
+            if let article = headlines?.articles?[indexPath.row] {
+                detailsVC.article = article
+            }
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    }
+}
+
+func GET_VIEW_CONTROLLER<T: UIViewController>(storyBoardName: String, storyBoardId: String) -> T? {
+    let storyboard = UIStoryboard.init(name: storyBoardName, bundle: nil)
+    let viewController = storyboard.instantiateViewController(withIdentifier: storyBoardId)
+    return viewController as? T ?? nil
 }

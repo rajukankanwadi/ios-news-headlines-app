@@ -34,8 +34,8 @@ class APIServices {
 
     class func makeGetCall(onSuccess success: @escaping (_ headlinesData: HeadlinesInfo?) -> Void, onFailure failure: @escaping (_ error: Error?) -> Void) {
 
-        let todoEndpoint: String = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=d960b0b9213f439ba3c7aef8925ab711"
-        guard let url = URL(string: todoEndpoint) else {
+        let headlinesUrl: String = "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=d960b0b9213f439ba3c7aef8925ab711"
+        guard let url = URL(string: headlinesUrl) else {
             print("Error: cannot create URL")
             return
         }

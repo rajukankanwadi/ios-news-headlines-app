@@ -25,6 +25,7 @@
 		83BD0E6A22EDD59800DD7760 /* MyAccountStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6922EDD59800DD7760 /* MyAccountStyle.swift */; };
 		83BD0E6D22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6B22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift */; };
 		83BD0E6E22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BD0E6C22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib */; };
+		83BD0E7022EE1ABA00DD7760 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD0E6F22EE1ABA00DD7760 /* NewsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		83BD0E6922EDD59800DD7760 /* MyAccountStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountStyle.swift; sourceTree = "<group>"; };
 		83BD0E6B22EDD92500DD7760 /* LoadingIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorTableViewCell.swift; sourceTree = "<group>"; };
 		83BD0E6C22EDD92500DD7760 /* LoadingIndicatorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicatorTableViewCell.xib; sourceTree = "<group>"; };
+		83BD0E6F22EE1ABA00DD7760 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				8327427022EA3A3B003104DE /* HeadLinesListTableViewController.swift */,
+				83BD0E6F22EE1ABA00DD7760 /* NewsDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83BD0E7022EE1ABA00DD7760 /* NewsDetailViewController.swift in Sources */,
 				8327424A22EA3074003104DE /* ViewController.swift in Sources */,
 				83BD0E6622EDCD9000DD7760 /* CustomImageView.swift in Sources */,
 				8327424822EA3074003104DE /* AppDelegate.swift in Sources */,

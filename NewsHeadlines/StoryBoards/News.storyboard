@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,6 +29,131 @@
             </objects>
             <point key="canvasLocation" x="918.84057971014499" y="213.61607142857142"/>
         </scene>
+        <!--News Detail View Controller-->
+        <scene sceneID="PUu-dG-XRY">
+            <objects>
+                <viewController storyboardIdentifier="NewsDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VDR-hJ-aUc" customClass="NewsDetailViewController" customModule="NewsHeadlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FJq-Yh-HfG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social" translatesAutoresizingMaskIntoConstraints="NO" id="omH-VI-vFs">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8M4-Hd-JA3">
+                                <rect key="frame" x="0.0" y="323" width="414" height="573"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-3G-2Ei" customClass="GradientView" customModule="NewsHeadlines" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's Tesla and Ford Stocks Sink, " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u81-GN-qdR">
+                                                <rect key="frame" x="24" y="0.0" width="366" height="167"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
+                                                <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="u81-GN-qdR" secondAttribute="bottom" constant="50" id="HsX-ec-Ma2"/>
+                                            <constraint firstItem="u81-GN-qdR" firstAttribute="top" secondItem="bFz-3G-2Ei" secondAttribute="top" id="MBv-Ys-bvH"/>
+                                            <constraint firstItem="u81-GN-qdR" firstAttribute="leading" secondItem="bFz-3G-2Ei" secondAttribute="leading" constant="24" id="Ok4-gU-VwQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="u81-GN-qdR" secondAttribute="trailing" constant="24" id="vxN-Bc-aQi"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.66458037405303028" green="0.66458037405303028" blue="0.66458037405303028" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qA7-Zq-Wjd" customClass="GradientView" customModule="NewsHeadlines" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="217" width="414" height="356"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-i7-BiK">
+                                                <rect key="frame" x="16" y="38" width="382" height="267.5"/>
+                                                <string key="text">Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's. Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's. Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's. Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's. Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's. Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's.</string>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBQ-ar-LL5">
+                                                <rect key="frame" x="16" y="0.0" width="261" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-07-28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngf-8O-hWg">
+                                                <rect key="frame" x="287" y="0.0" width="111" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ngf-8O-hWg" secondAttribute="trailing" constant="16" id="18F-CJ-piX"/>
+                                            <constraint firstAttribute="trailing" secondItem="bhR-i7-BiK" secondAttribute="trailing" constant="16" id="6wL-AV-sGz"/>
+                                            <constraint firstAttribute="bottom" secondItem="bhR-i7-BiK" secondAttribute="bottom" constant="50.5" id="7cH-q5-NMf"/>
+                                            <constraint firstItem="bhR-i7-BiK" firstAttribute="top" secondItem="UBQ-ar-LL5" secondAttribute="bottom" constant="14" id="9Dx-MZ-YMb"/>
+                                            <constraint firstItem="UBQ-ar-LL5" firstAttribute="top" secondItem="qA7-Zq-Wjd" secondAttribute="top" id="H0e-7x-j5e"/>
+                                            <constraint firstItem="ngf-8O-hWg" firstAttribute="leading" secondItem="UBQ-ar-LL5" secondAttribute="trailing" constant="10" id="cTY-lO-Ovo"/>
+                                            <constraint firstItem="bhR-i7-BiK" firstAttribute="leading" secondItem="qA7-Zq-Wjd" secondAttribute="leading" constant="16" id="is9-Ng-1ZU"/>
+                                            <constraint firstItem="UBQ-ar-LL5" firstAttribute="centerY" secondItem="ngf-8O-hWg" secondAttribute="centerY" id="krY-Z5-NPP"/>
+                                            <constraint firstItem="UBQ-ar-LL5" firstAttribute="leading" secondItem="qA7-Zq-Wjd" secondAttribute="leading" constant="16" id="olB-AW-BDq"/>
+                                            <constraint firstItem="ngf-8O-hWg" firstAttribute="top" secondItem="qA7-Zq-Wjd" secondAttribute="top" id="rTw-rY-BZG"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" white="0.0" alpha="0.50267752347417838" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwh-Ro-Yf1">
+                                <rect key="frame" x="14" y="73" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qbc-eH-Iga"/>
+                                    <constraint firstAttribute="width" constant="30" id="aWr-Nz-nHJ"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8M4-Hd-JA3" secondAttribute="bottom" id="EgW-dv-lXL"/>
+                            <constraint firstItem="omH-VI-vFs" firstAttribute="centerY" secondItem="FJq-Yh-HfG" secondAttribute="centerY" id="G71-8e-PnG"/>
+                            <constraint firstItem="omH-VI-vFs" firstAttribute="trailing" secondItem="fpt-3C-fSf" secondAttribute="trailing" id="IHZ-d9-goN"/>
+                            <constraint firstItem="omH-VI-vFs" firstAttribute="leading" secondItem="fpt-3C-fSf" secondAttribute="leading" id="M6H-ZK-jXG"/>
+                            <constraint firstAttribute="trailing" secondItem="8M4-Hd-JA3" secondAttribute="trailing" id="PVQ-aG-Lfa"/>
+                            <constraint firstItem="omH-VI-vFs" firstAttribute="top" secondItem="FJq-Yh-HfG" secondAttribute="top" id="RY7-eI-yQe"/>
+                            <constraint firstItem="Fwh-Ro-Yf1" firstAttribute="top" secondItem="fpt-3C-fSf" secondAttribute="top" constant="29" id="ZY3-1N-lgX"/>
+                            <constraint firstItem="Fwh-Ro-Yf1" firstAttribute="leading" secondItem="fpt-3C-fSf" secondAttribute="leading" constant="14" id="a0t-Ue-pkH"/>
+                            <constraint firstItem="omH-VI-vFs" firstAttribute="centerX" secondItem="FJq-Yh-HfG" secondAttribute="centerX" id="iFl-sV-uAK"/>
+                            <constraint firstAttribute="bottom" secondItem="omH-VI-vFs" secondAttribute="bottom" id="pYO-Up-aP4"/>
+                            <constraint firstItem="8M4-Hd-JA3" firstAttribute="leading" secondItem="fpt-3C-fSf" secondAttribute="leading" id="ubd-xg-Gl8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fpt-3C-fSf"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Fwh-Ro-Yf1" id="zDM-KQ-sT2"/>
+                        <outlet property="dateLabel" destination="ngf-8O-hWg" id="1TA-Gd-Xuf"/>
+                        <outlet property="descriptionLabel" destination="bhR-i7-BiK" id="n94-kf-MmK"/>
+                        <outlet property="headlineTitle" destination="u81-GN-qdR" id="ZpQ-qD-6nI"/>
+                        <outlet property="newsImageView" destination="omH-VI-vFs" id="sUp-6t-ebM"/>
+                        <outlet property="sourceLabel" destination="UBQ-ar-LL5" id="VPH-3j-Qp8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUh-yz-QDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697.1014492753625" y="208.92857142857142"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="skb-8p-iKZ">
             <objects>
@@ -48,4 +174,8 @@
             <point key="canvasLocation" x="8.6956521739130448" y="213.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="512" height="512"/>
+        <image name="social" width="899" height="471"/>
+    </resources>
 </document>
