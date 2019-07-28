@@ -22,55 +22,70 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-mz-0ZM">
                         <rect key="frame" x="22.5" y="16" width="343" height="188"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nokia" translatesAutoresizingMaskIntoConstraints="NO" id="QiO-YR-pXk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QiO-YR-pXk" customClass="CustomImageView" customModule="NewsHeadlines" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="343" height="188"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QiO-YR-pXk" secondAttribute="height" multiplier="343:188" id="CNT-vt-9nq"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Ylo-Tn-EsE">
-                                <rect key="frame" x="16" y="55" width="317" height="123"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Q2-VI-ahi">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="188"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's Tesla and Ford Stocks Sink, " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH0-x8-J6q">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="95.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <color key="textColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fsF-V1-i7W">
-                                        <rect key="frame" x="0.0" y="108.5" width="123.5" height="14.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-ph-QSB">
+                                        <rect key="frame" x="16" y="55" width="311" height="123"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePH-L5-dLR">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tesla and Ford Stocks Sink, but Earnings Aren’t the Real Story - Barron's Tesla and Ford Stocks Sink, " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH0-x8-J6q">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="95.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <color key="textColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-07-26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgo-zN-ER2">
-                                                <rect key="frame" x="55" y="0.0" width="68.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fsF-V1-i7W">
+                                                <rect key="frame" x="0.0" y="108.5" width="123.5" height="14.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePH-L5-dLR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-07-26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgo-zN-ER2">
+                                                        <rect key="frame" x="55" y="0.0" width="68.5" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" red="0.4183256662" green="0.4183256662" blue="0.4183256662" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="b3h-ph-QSB" secondAttribute="bottom" constant="10" id="DmZ-CJ-87S"/>
+                                    <constraint firstItem="b3h-ph-QSB" firstAttribute="leading" secondItem="4Q2-VI-ahi" secondAttribute="leading" constant="16" id="KBc-rD-eM8"/>
+                                    <constraint firstAttribute="trailing" secondItem="b3h-ph-QSB" secondAttribute="trailing" constant="16" id="VQi-NX-M31"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.4183256662" green="0.4183256662" blue="0.4183256662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QiO-YR-pXk" secondAttribute="trailing" id="0XC-RW-wWw"/>
+                            <constraint firstAttribute="trailing" secondItem="4Q2-VI-ahi" secondAttribute="trailing" id="A07-LZ-jZB"/>
                             <constraint firstAttribute="height" constant="188" id="AoM-RR-YCh"/>
                             <constraint firstItem="QiO-YR-pXk" firstAttribute="centerX" secondItem="PZE-mz-0ZM" secondAttribute="centerX" id="BpF-gV-6ts"/>
+                            <constraint firstItem="4Q2-VI-ahi" firstAttribute="leading" secondItem="PZE-mz-0ZM" secondAttribute="leading" id="ElC-Rp-nq3"/>
+                            <constraint firstItem="4Q2-VI-ahi" firstAttribute="width" secondItem="PZE-mz-0ZM" secondAttribute="width" id="KTB-r4-bdx"/>
                             <constraint firstItem="QiO-YR-pXk" firstAttribute="height" secondItem="PZE-mz-0ZM" secondAttribute="height" id="O2r-Lo-qRH"/>
-                            <constraint firstItem="Ylo-Tn-EsE" firstAttribute="leading" secondItem="PZE-mz-0ZM" secondAttribute="leading" constant="16" id="Wd8-yb-6XP"/>
-                            <constraint firstAttribute="bottom" secondItem="Ylo-Tn-EsE" secondAttribute="bottom" constant="10" id="Yw0-Md-6VM"/>
+                            <constraint firstAttribute="trailing" secondItem="4Q2-VI-ahi" secondAttribute="trailing" id="WfC-1f-FfB"/>
+                            <constraint firstAttribute="bottom" secondItem="4Q2-VI-ahi" secondAttribute="bottom" id="XGH-A0-u0Y"/>
                             <constraint firstItem="QiO-YR-pXk" firstAttribute="width" secondItem="PZE-mz-0ZM" secondAttribute="width" id="Z6e-q9-eW6"/>
+                            <constraint firstItem="4Q2-VI-ahi" firstAttribute="height" secondItem="PZE-mz-0ZM" secondAttribute="height" id="bAj-at-H48"/>
+                            <constraint firstItem="4Q2-VI-ahi" firstAttribute="leading" secondItem="PZE-mz-0ZM" secondAttribute="leading" id="fHv-7j-4Yy"/>
+                            <constraint firstItem="4Q2-VI-ahi" firstAttribute="top" secondItem="PZE-mz-0ZM" secondAttribute="top" id="fqm-Zo-sgJ"/>
                             <constraint firstItem="QiO-YR-pXk" firstAttribute="centerY" secondItem="PZE-mz-0ZM" secondAttribute="centerY" id="iHP-Nm-xam"/>
                             <constraint firstAttribute="bottom" secondItem="QiO-YR-pXk" secondAttribute="bottom" id="k1z-NI-uxM"/>
-                            <constraint firstAttribute="width" constant="343" id="p6v-qk-ahN"/>
                             <constraint firstItem="QiO-YR-pXk" firstAttribute="leading" secondItem="PZE-mz-0ZM" secondAttribute="leading" id="qmo-KY-IW2"/>
-                            <constraint firstAttribute="trailing" secondItem="Ylo-Tn-EsE" secondAttribute="trailing" constant="10" id="yUL-hK-GHI"/>
                             <constraint firstItem="QiO-YR-pXk" firstAttribute="top" secondItem="PZE-mz-0ZM" secondAttribute="top" id="zle-AL-sKM"/>
                         </constraints>
                     </view>
@@ -91,7 +106,4 @@
             <point key="canvasLocation" x="186.95652173913044" y="188.83928571428569"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Nokia" width="1920" height="1440"/>
-    </resources>
 </document>
