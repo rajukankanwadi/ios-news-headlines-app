@@ -6,72 +6,100 @@
 //  Copyright © 2019 raju.kankanwadi. All rights reserved.
 //
 import Foundation
+import Realm
+import RealmSwift
 
-// MARK: - HeadlinesInfo
-class HeadlinesInfo: Codable {
-    let status: String?
-    let totalResults: Int?
-    let articles: [Article]?
+class CBMAObject: Object, Decodable {
 
-    enum CodingKeys: String, CodingKey {
-        case status = "status"
-        case totalResults = "totalResults"
-        case articles = "articles"
+    @objc dynamic var status: String?
+    @objc dynamic var totalResults: Int = 0
+
+    private enum ServiceInfoCodingKeys: String, CodingKey {
+        case status
+        case totalResults
     }
 
-    init(status: String?, totalResults: Int?, articles: [Article]?) {
-        self.status = status
-        self.totalResults = totalResults
-        self.articles = articles
+    public required init(from decoder: Decoder) throws {
+        super.init()
+        let container = try decoder.container(keyedBy: ServiceInfoCodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.totalResults = try container.decodeIfPresent(Int.self, forKey: .totalResults) ?? 0
+    }
+
+    required init() {
+        super.init()
+    }
+
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
     }
 }
 
-// MARK: - Article
-class Article: Codable {
-    let source: Source?
-    let author: String?
-    let title: String?
-    let articleDescription: String?
-    let url: String?
-    let urlToImage: String?
-    let publishedAt: String?
-    let content: String?
 
-    enum CodingKeys: String, CodingKey {
-        case source = "source"
-        case author = "author"
-        case title = "title"
-        case articleDescription = "description"
-        case url = "url"
-        case urlToImage = "urlToImage"
-        case publishedAt = "publishedAt"
-        case content = "content"
+// MARK: - HeadlinesInfo
+final class HeadlinesInfo:CBMAObject {
+
+    var articles = List<Article>()
+
+    override static func primaryKey() -> String? {
+        return "status"
     }
 
-    init(source: Source?, author: String?, title: String?, articleDescription: String?, url: String?, urlToImage: String?, publishedAt: String?, content: String?) {
-        self.source = source
-        self.author = author
-        self.title = title
-        self.articleDescription = articleDescription
-        self.url = url
-        self.urlToImage = urlToImage
-        self.publishedAt = publishedAt
-        self.content = content
+    private enum ArticlesInfoCodingKeys: String, CodingKey {
+        case articles
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ArticlesInfoCodingKeys.self)
+
+        if let baseAccounts = try container.decodeIfPresent([Article].self, forKey: .articles) {
+            self.articles.append(objectsIn: baseAccounts)
+        }
+        try super.init(from: decoder)
+        print(self.articles)
+    }
+
+    required init() {
+        super.init()
+    }
+
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+
+}
+
+// MARK: - Article
+final class Article:Object, Codable {
+    @objc dynamic var source: Source?
+    @objc dynamic var author: String?
+    @objc dynamic var title: String?
+    @objc dynamic var articleDescription: String?
+    @objc dynamic var url: String?
+    @objc dynamic var urlToImage: String?
+    @objc dynamic var publishedAt: String?
+    @objc dynamic var content: String?
+
+    override static func primaryKey() -> String? {
+        return "url"
     }
 }
 
 // MARK: - Source
-class Source: Codable {
-    let id: String?
-    let name: String?
+final class Source:Object, Codable {
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
 
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
+    override static func primaryKey() -> String? {
+        return "id"
     }
 
-    init(id: String?, name: String?) {
-        self.id = id
-        self.name = name
-    }
 }

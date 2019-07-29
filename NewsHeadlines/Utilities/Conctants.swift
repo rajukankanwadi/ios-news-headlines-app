@@ -17,7 +17,7 @@ struct Constants {
     let robotoRegular20pt = ScaledFont.robotoSlab.font(forTextStyle: .headline)
 
     struct URL {
-        let headLinesUrl = "https://newsapi.org/v2/top-headlines"
+        let headLinesUrl = "https://newsapi.org/v2/"
     }
 }
 

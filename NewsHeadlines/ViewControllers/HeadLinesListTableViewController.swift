@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
+import Realm
 
 let newsStoryboard = "News"
-class HeadLinesListTableViewController: UITableViewController {
+class HeadLinesListTableViewController: BaseTableViewController {
 
     static let storyBoardId = "HeadLinesTVC"
     private let headlinesCellId = "headLinesCell"
@@ -18,6 +20,10 @@ class HeadLinesListTableViewController: UITableViewController {
     var headlines: HeadlinesInfo?
     var didheadlinesLoad: Bool = false
     var didHeadlinesFailToLoad: Bool = false
+
+    var headlinesToken: NotificationToken?
+    var headlinesPayload: Results<HeadlinesInfo>?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "HeadlineTableViewCell", bundle: nil)
@@ -26,23 +32,53 @@ class HeadLinesListTableViewController: UITableViewController {
         tableView.register(loadingIndicatorNib, forCellReuseIdentifier: loadingCellId)
         tableView.rowHeight = 220
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "White")
 
-        APIServices.makeGetCall(onSuccess: { [weak self] (headlinesData) in
-            self?.headlines = headlinesData
-            self?.didheadlinesLoad = true
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }) { (error) in
+    private func fetchHeadlines() {
+        APIServices.shared.getTopHeadlinesCall { (error) in
             self.didHeadlinesFailToLoad = true
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+    }
 
+    func subscribeToLookUpAccountChanges() {
+        guard let realm = lazyRealm else {
+            return
+        }
+
+        headlinesPayload = realm.objects(HeadlinesInfo.self)
+        headlinesToken = headlinesPayload?.observe({ [weak self] (changes) in
+            guard let self = self else { return }
+            switch changes {
+            case .initial:
+                guard let headlinesPayload = self.headlinesPayload, headlinesPayload.count > 0 else {
+                    return
+                }
+                print(headlinesPayload.first?.status ?? "nilll")
+            case .update:
+                guard let headlinesPayload = self.headlinesPayload, headlinesPayload.count > 0 else {
+                    return
+                }
+                self.headlines = headlinesPayload.first
+//                guard let articles = headlinesPayload.first?.articles else {return}
+                self.didheadlinesLoad = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .error(let error):
+                print(error)
+            }
+        })
+    }
+
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "White")
+        //API call
+        subscribeToLookUpAccountChanges()
+        fetchHeadlines()
     }
     // MARK: - Table view data source
 
@@ -51,7 +87,7 @@ class HeadLinesListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return headlines?.articles?.count ?? 1
+        return headlines?.articles.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,7 +95,7 @@ class HeadLinesListTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: loadingCellId, for: indexPath) as! LoadingIndicatorTableViewCell
             cell.refreshButton.isHidden = true
             cell.activityIndicator.startAnimating()
-
+            cell.refreshDelegate = self
             if didHeadlinesFailToLoad {
                 cell.activityIndicator.stopAnimating()
                 cell.refreshButton.setTitle("Tap here to refresh News feed", for: .normal)
@@ -68,7 +104,7 @@ class HeadLinesListTableViewController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: headlinesCellId, for: indexPath) as! HeadlineTableViewCell
-            if let article = headlines?.articles?[indexPath.row] {
+            if let article = headlines?.articles[indexPath.row] {
                 cell.article = article
             }
             return cell
@@ -78,7 +114,7 @@ class HeadLinesListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard didheadlinesLoad else {return}
         if let detailsVC: NewsDetailViewController = GET_VIEW_CONTROLLER(storyBoardName: newsStoryboard, storyBoardId: NewsDetailViewController.storyBoardId) {
-            if let article = headlines?.articles?[indexPath.row] {
+            if let article = headlines?.articles[indexPath.row] {
                 detailsVC.article = article
             }
             self.navigationController?.pushViewController(detailsVC, animated: true)
@@ -88,7 +124,7 @@ class HeadLinesListTableViewController: UITableViewController {
 
 extension HeadLinesListTableViewController: RefreshAPIFailureCellDelegate {
     func refreshFailedNetwork() {
-        <#code#>
+        fetchHeadlines()
     }
 }
 
