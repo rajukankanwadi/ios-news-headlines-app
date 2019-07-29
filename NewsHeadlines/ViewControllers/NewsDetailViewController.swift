@@ -24,6 +24,11 @@ class NewsDetailViewController: UIViewController {
         super.viewDidLoad()
         populateDetails()
         backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
+        let constants = Constants()
+        headlineTitle.font = constants.robotoBold29pt
+        sourceLabel.font = constants.robotoRegular20pt
+        descriptionLabel.font = constants.robotoRegular14pt
+        dateLabel.font = constants.robotoRegular20pt
     }
 
     func populateDetails() {

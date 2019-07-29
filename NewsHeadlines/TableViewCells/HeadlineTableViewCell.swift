@@ -36,6 +36,11 @@ class HeadlineTableViewCell: UITableViewCell {
         // Initialization code
         self.imageView?.layoutIfNeeded()
         self.contentView.layoutSubviews()
+        let constants = Constants()
+        self.headlineTextLabel.font = constants.robotoRegular20pt
+        self.postedDateLabel.font = constants.robotoBold12pt
+        self.sourcelabel.font = constants.robotoBold12pt
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

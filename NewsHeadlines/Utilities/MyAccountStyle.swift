@@ -16,7 +16,7 @@ public class MyAccountStyleTheme: NSObject {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barTintColor = .black
         navBarAppearance.tintColor = .white
-        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font: ScaledFont.robotoSlab.font(forTextStyle: .title1)]
     }
 }
 
