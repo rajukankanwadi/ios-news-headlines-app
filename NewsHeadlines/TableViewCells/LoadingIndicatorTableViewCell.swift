@@ -9,13 +9,12 @@
 import UIKit
 
 protocol RefreshAPIFailureCellDelegate: class {
-    func refreshFailedNetwork(currentAPI: String)
+    func refreshFailedNetwork()
 }
 class LoadingIndicatorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var refreshButton: UIButton!
-    var failedApiString: String = ""
 
     weak var refreshDelegate: RefreshAPIFailureCellDelegate?
 
@@ -26,6 +25,6 @@ class LoadingIndicatorTableViewCell: UITableViewCell {
     @IBAction func refreshStatementsTapped(_ sender: Any) {
         self.activityIndicator.startAnimating()
         self.refreshButton.isHidden = true
-        refreshDelegate?.refreshFailedNetwork(currentAPI: failedApiString)
+        refreshDelegate?.refreshFailedNetwork()
     }
 }

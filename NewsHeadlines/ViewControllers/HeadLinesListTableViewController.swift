@@ -57,7 +57,6 @@ class HeadLinesListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if !didheadlinesLoad {
             let cell = tableView.dequeueReusableCell(withIdentifier: loadingCellId, for: indexPath) as! LoadingIndicatorTableViewCell
-            cell.failedApiString = "EquipmentFailed"
             cell.refreshButton.isHidden = true
             cell.activityIndicator.startAnimating()
 
@@ -87,6 +86,13 @@ class HeadLinesListTableViewController: UITableViewController {
     }
 }
 
+extension HeadLinesListTableViewController: RefreshAPIFailureCellDelegate {
+    func refreshFailedNetwork() {
+        <#code#>
+    }
+}
+
+///global function to get VC instance
 func GET_VIEW_CONTROLLER<T: UIViewController>(storyBoardName: String, storyBoardId: String) -> T? {
     let storyboard = UIStoryboard.init(name: storyBoardName, bundle: nil)
     let viewController = storyboard.instantiateViewController(withIdentifier: storyBoardId)
